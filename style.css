@@ -1,0 +1,680 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: black; /* Full black background */
+    color: white; /* Default text color */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 100vh; 
+    padding-left: 40px; 
+}
+
+.navbar li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.navbar li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.navbar li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.navbar li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    opacity: 0;
+    filter: blur(10px); /* Initial blur effect */
+    transform: translateY(50px); /* Start slightly below the viewport */
+    animation: navbarFadeIn 1s ease-out forwards; /* Animation for fade-in and blur removal */
+    margin: 10px 0; /* Spacing between items */
+}
+
+.navbar a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    transition: letter-spacing 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* posisi garis di bawah teks */
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+    letter-spacing: 2px;
+    transform: scale(1.1);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* Keyframes for navbar animation */
+@keyframes navbarFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* About page styles */
+.about-container {
+    max-width: 800px; /* Limit the width of the content */
+    margin: 50px auto; /* Center the content horizontally and add vertical spacing */
+    padding: 20px; /* Add padding around the content */
+}
+
+h1 {
+    font-size: 3rem; /* Large heading size */
+    font-weight: 700; /* Bold font */
+    margin-bottom: 20px; /* Space below the heading */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Slide down effect */
+    animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+}
+
+p {
+    font-size: 1rem; /* Standard paragraph size */
+    margin-bottom: 20px; /* Space between paragraphs */
+    opacity: 0; /* Initially hidden */
+    filter: blur(10px); /* Initial blur effect */
+    transform: translateY(50px); /* Start slightly below the viewport */
+    animation: paragraphFadeIn 1s ease-out forwards; /* Animation for fade-in and blur removal */
+}
+
+/* Add delays for each paragraph */
+p:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+p:nth-of-type(2) {
+    animation-delay: 3.0s;
+}
+
+p:nth-of-type(3) {
+    animation-delay: 6.0s;
+}
+
+.back-button {
+    display: inline-block;
+    font-size: 2rem; /* Large back button */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    margin-top: 20px; /* Space above the button */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.back-button:hover {
+    transform: scale(1.2); /* Slightly enlarge the button on hover */
+}
+
+/* Keyframes for paragraph fade-in animation */
+@keyframes paragraphFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for fade-in animation (used for h1) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Introduction Section */
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 0 20px;         /* Padding samping untuk responsif */
+    max-width: 800px;        /* Batasi lebar konten */
+    margin: 0 auto;          /* Pusatkan di tengah layar */
+    color: white;            /* Tambahkan jika teks warnanya putih */
+}
+
+.intro-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+
+/* Introduction Section */
+.intro-section {
+    text-align: center;
+    padding: 50px 20px; /* Add padding around the section */
+}
+
+.intro-section h1 {
+    font-size: 3rem; /* Large header size */
+    font-weight: 700; /* Bold font */
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1.2rem; /* Paragraph size */
+    font-weight: 400; /* Regular font */
+    margin-bottom: 20px;
+}
+
+/* Grid Section */
+.grid-section {
+    padding: 50px 20px;
+    max-width: 1000px;      /* Batasi lebar grid */
+    margin: 0 auto;         /* Pusatkan secara horizontal */
+    color: white;
+    /* Hapus animasi default untuk grid-section */
+}
+
+/* Perbaiki aturan untuk animasi scroll */
+.grid-section,
+.editing-grid-section {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Start slightly below the viewport */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth fade-in and slide-up animation */
+}
+
+.grid-section.visible,
+.editing-grid-section.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+/* Tambahkan kelas untuk elemen yang keluar dari viewport */
+.grid-section.out-of-view,
+.editing-grid-section.out-of-view {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.grid-section h2 {
+    font-size: 3rem;        /* Besar seperti judul utama */
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;           /* Warna putih sesuai gambar */
+    text-align: left;       /* Rata kiri */
+    border-bottom: 3px solid white; /* Garis pink di bawah judul (opsional) */
+    display: inline-block;  /* Agar garis bawah sesuai panjang teks */
+    padding-bottom: 5px;
+}
+
+.grid-section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    transition: width 0.5s ease;
+}
+
+.grid-section h2:hover::after {
+    width: 100%; /* Animate underline on hover */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebar fleksibel */
+    gap: 20px;
+}
+
+/* Grid item animations - hapus animation default dan biarkan JavaScript menangani */
+.grid-item {
+    position: relative; /* Agar caption bisa diposisikan di atas gambar */
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* Ukuran kotak jadi persegi panjang (lebar > tinggi) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Biar tidak ada celah warna aneh saat loading */
+}
+
+/* Referensi animation delay (tidak digunakan langsung tapi dikelola melalui JavaScript) */
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; 
+}
+
+/* Referensi animation delay (tidak digunakan langsung tapi dikelola melalui JavaScript) */
+.grid-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.grid-item:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.grid-item:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.grid-item:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+.grid-item:nth-child(5) {
+    transition-delay: 1.0s;
+}
+
+.grid-item:nth-child(6) {
+    transition-delay: 1.2s;
+}
+
+.grid-item:nth-child(7) {
+    transition-delay: 1.4s;
+}
+
+.grid-item:nth-child(8) {
+    transition-delay: 1.6s;
+}
+
+.grid-item:nth-child(9) {
+    transition-delay: 1.8s;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar gambar tetap proporsional dan mengisi kotak */
+    transition: transform 0.3s ease;
+}
+
+.grid-item img:hover {
+    transform: scale(1.1);
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0;
+    transform: translateY(20px); /* Awal posisi sedikit di bawah */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Fade + slide */
+}
+
+.grid-item:hover .caption {
+    opacity: 1;
+    transform: translateY(0); /* Geser ke posisi normal */
+}
+
+/* Keyframes for grid item fade-in animation */
+@keyframes gridItemFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for section fade-in animation */
+@keyframes sectionFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Grid Section End */
+
+/* Editing Grid Section */
+.editing-grid-section {
+    padding: 50px 20px;
+    max-width: 1000px;      /* Batasi lebar grid */
+    margin: 0 auto;         /* Pusatkan secara horizontal */
+    color: white;
+}
+
+.editing-grid-section h2 {
+    font-size: 3rem;        /* Besar seperti judul utama */
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;           /* Warna putih sesuai gambar */
+    text-align: left;       /* Rata kiri */
+    border-bottom: 3px solid white; /* Garis pink di bawah judul (opsional) */
+    display: inline-block;  /* Agar garis bawah sesuai panjang teks */
+    padding-bottom: 5px;
+}
+
+.editing-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebar fleksibel */
+    gap: 20px;
+}
+
+.editing-grid-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* Ukuran kotak jadi persegi panjang (lebar > tinggi) */
+    display: flex;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Start slightly below the viewport */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth fade-in and slide-up animation */
+}
+
+.editing-grid-item.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+/* Tambahkan delay untuk setiap item */
+.editing-grid-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.editing-grid-item:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.editing-grid-item:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.editing-grid-item:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+.editing-grid-item:nth-child(5) {
+    transition-delay: 1.0s;
+}
+
+.editing-grid-item:nth-child(6) {
+    transition-delay: 1.2s;
+}
+
+.editing-grid-item:nth-child(7) {
+    transition-delay: 1.4s;
+}
+
+.editing-grid-item:nth-child(8) {
+    transition-delay: 1.6s;
+}
+
+.editing-grid-item:nth-child(9) {
+    transition-delay: 1.8s;
+}
+
+.editing-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar gambar tetap proporsional dan mengisi kotak */
+    transition: transform 0.3s ease;
+}
+
+.editing-grid-item img:hover {
+    transform: scale(1.1);
+}
+
+.editing-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.editing-grid-item:hover .editing-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Music Grid Section */
+.music-section {
+    padding: 50px 20px;
+    max-width: 1000px;      /* Batasi lebar grid */
+    margin: 0 auto;         /* Pusatkan secara horizontal */
+    color: white;
+}
+
+.music-section h2 {
+    font-size: 3rem;        /* Besar seperti judul utama */
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;           /* Warna putih sesuai gambar */
+    text-align: left;       /* Rata kiri */
+    border-bottom: 3px solid white; /* Garis pink di bawah judul (opsional) */
+    display: inline-block;  /* Agar garis bawah sesuai panjang teks */
+    padding-bottom: 5px;
+}
+
+.music-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebar fleksibel */
+    gap: 20px;
+}
+
+.music-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* Ukuran kotak jadi persegi panjang (lebar > tinggi) */
+    max-height: 250px;
+    display: flex;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Start slightly below the viewport */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth fade-in and slide-up animation */
+}
+
+.music-item.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+/* Tambahkan delay untuk setiap item */
+.music-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.music-item:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.music-item:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.music-item:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+.music-item:nth-child(5) {
+    transition-delay: 1.0s;
+}
+
+.music-item:nth-child(6) {
+    transition-delay: 1.2s;
+}
+
+.music-item:nth-child(7) {
+    transition-delay: 1.4s;
+}
+
+.music-item:nth-child(8) {
+    transition-delay: 1.6s;
+}
+
+.music-item:nth-child(9) {
+    transition-delay: 1.8s;
+}
+
+.music-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar gambar tetap proporsional dan mengisi kotak */
+    transition: transform 0.3s ease;
+}
+
+.music-item img:hover {
+    transform: scale(1.1);
+}
+
+.music-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.music-item:hover .music-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-container {
+    max-width: 800px; /* Limit the width of the content */
+    margin: 50px auto; /* Center the content horizontally and add vertical spacing */
+    padding: 20px; /* Add padding around the content */
+}
+
+h1 {
+    font-size: 3rem; /* Large heading size */
+    font-weight: 700; /* Bold font */
+    margin-bottom: 20px; /* Space below the heading */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Slide down effect */
+    animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+}
+
+p {
+    font-size: 1rem; /* Standard paragraph size */
+    margin-bottom: 20px; /* Space between paragraphs */
+    opacity: 0; /* Initially hidden */
+    filter: blur(10px); /* Initial blur effect */
+    transform: translateY(50px); /* Start slightly below the viewport */
+    animation: paragraphFadeIn 1s ease-out forwards; /* Animation for fade-in and blur removal */
+}
+
+/* Add delays for each paragraph */
+p:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+p:nth-of-type(2) {
+    animation-delay: 1.0s;
+}
+
+p:nth-of-type(3) {
+    animation-delay: 1.6s;
+}
+
+/* Animated HR */
+.animated-hr {
+    width: 0;
+    height: 3px;
+    background-color: white;
+    border: none;
+    margin: 50px 0 30px 0;         /* Hapus auto center */
+    transition: width 1.5s ease-in-out;
+    max-width: 100%;               /* Hindari melebar lebih dari container */
+}
+
+.animated-hr.visible {
+    width: 100%;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    opacity: 0;
+}
+
+.social-icons a {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.social-icons.visible a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animation delays */
+.social-icons.visible a:nth-child(1) { transition-delay: 0.2s; }
+.social-icons.visible a:nth-child(2) { transition-delay: 0.4s; }
+.social-icons.visible a:nth-child(3) { transition-delay: 0.6s; }
+.social-icons.visible a:nth-child(4) { transition-delay: 0.8s; }
+.social-icons.visible a:nth-child(5) { transition-delay: 1.0s; }
+.social-icons.visible a:nth-child(6) { transition-delay: 1.2s; }
